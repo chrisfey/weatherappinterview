@@ -1,0 +1,33 @@
+<div class="state-cities-current">
+  <div class="current-city-name"><h2 ng-cloack>{{weatherConditions.name}}</h2></div>
+  <div class="current-city-weather-conditions" ng-repeat="weather in weatherConditions.weather">
+    <div class="weather-condition-main" ng-cloack>
+      <img  ng-src="http://openweathermap.org/img/w/{{weather.icon}}.png"/>
+      <span class="main-temp">{{weatherConditions.main.temp| convert:tempType}}</span>
+    </div>
+    <span class="weather-condition-description">{{weather.main}}</span>
+  </div>
+  <div class="current-city-weather-stats">
+    <div class="table-wrapper" ng-cloack>
+      <table>
+        <tr>
+          <th>Range</th>
+          <td class="range">{{weatherConditions.main.temp_min| convert:tempType}} - {{weatherConditions.main.temp_max| convert:tempType}}</td>
+        </tr>
+        <tr>
+          <th>Pressure</th>
+          <td class="pressure">{{weatherConditions.main.pressure}} hpa</td>
+        </tr>      
+        <tr>
+          <th>Humidity</th>
+          <td class="humidity">{{weatherConditions.main.humidity}} %</td>
+        </tr>
+        <tr>
+          <th>Coordinates</th>
+          <td class="coords">( {{weatherConditions.coord.lon}} , {{weatherConditions.coord.lat}} )</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+

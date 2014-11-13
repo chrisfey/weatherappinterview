@@ -1,0 +1,135 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "/bower_components/font-awesome/fonts";
+@import "font-awesome/scss/font-awesome";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$weather-icon-size:50px;
+
+.main-content{
+  @extend .container-fluid;
+}
+.state-cities{
+  @extend .row;
+  header{
+    @extend .col-xs-12;
+    @extend .col-lg-offset-1;
+    @extend .col-lg-10;
+    h1{
+      float:left;
+    }
+    .controls{
+      height:20px;
+      margin:10px 0px;
+      float:right;
+      text-align:right;
+    }
+  }
+  .city-list{
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+    @extend .col-lg-offset-1;
+    @extend .col-lg-3;
+    .mobile-city-search{
+      display:none;
+    }
+    .city-filter{
+      input{
+        @extend .form-control;
+      }
+    }
+    .table-wrapper{
+      @extend .table-responsive;
+      table{
+        @extend .table;
+      }
+    }
+  }
+  .selected-city{
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+    @extend .col-md-9;
+    @extend .col-lg-7;
+  }
+}
+.state-cities-current{
+  @extend .row;
+  .current-city-name{
+    @extend .col-xs-12;
+    text-align:center;
+  }
+  .current-city-weather-conditions{
+    @extend .col-sm-12;
+    @extend .col-md-6;
+
+    .weather-condition-main{
+      text-align:center;
+      img{
+        display: inline-block;
+      }
+      .main-temp{
+        display: inline-block;
+        font-size: $weather-icon-size - 10px;
+      }
+
+    }
+    .weather-condition-description{
+
+      text-align:center;
+      clear: both;
+      display: block;
+      font-size: $weather-icon-size - 20px;
+    }
+  }
+  .current-city-weather-stats{
+    @extend .col-sm-12;
+    @extend .col-md-6;
+    .table-wrapper{
+      @extend .table-responsive;
+      table{
+        @extend .table;
+        @extend .table-hover;
+        @extend .table-bordered;
+        @extend .table-condensed;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) { 
+
+  .state-cities{
+    header{
+      h1{
+        float:none;
+      }
+      .controls{
+        margin:10px 0px;
+        float:none;
+        text-align:left;
+        .temperature{
+          float:left;
+        }
+      }
+    }
+    .city-list{
+      .mobile-city-search{
+        display:block;
+      }
+      .city-filter{
+        display:none;
+      }
+      .table-wrapper{
+        display:none;
+      }
+    }
+  }
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { 
+
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) { 
+
+}

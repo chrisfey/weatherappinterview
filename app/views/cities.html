@@ -1,0 +1,37 @@
+<div class="state-cities">
+  <header>
+    <h1>Weather forecast app</h1>
+    <div class="controls">
+      <div class="temperature"><a href="" ng-click="tempType = 'C'">Celsius</a> | <a href="" ng-click="tempType = 'F'">Fahrenheit</a> </div>
+    </div>
+  </header>
+  <div class="city-list">
+
+    <div class="mobile-city-search">
+    <ui-select ng-model="city.selected" theme="bootstrap" ng-disabled="disabled">
+      <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+      <ui-select-choices repeat="city in cities.list | filter: $select.search">
+        <span ng-bind-html="city.name | highlight: $select.search"></span>
+      </ui-select-choices>
+    </ui-select>
+    </div>
+
+    <div class="city-filter">
+      <input type="text" placeholder="Search..." ng-model="citySearch">
+    </div>
+    <div class="table-wrapper">
+
+      <table>
+        <tr>
+          <th ><a href="" ng-click="setOrder('name')">City Name <span ng-show="order === 'name'" class="fa" ng-class="{'fa-sort-alpha-desc':reverse, 'fa-sort-alpha-asc':!reverse}"></span></a></th>
+          <th><a href="" ng-click="setOrder('main.temp')">Temperature <span ng-show="order === 'main.temp'" class="fa" ng-class="{'fa-sort-numeric-desc':reverse, 'fa-sort-numeric-asc':!reverse}"></span></a></th>
+        </tr>
+        <tr ui-sref="cities.current({cityId:city.id})" ng-repeat="city in cities.list| filter:citySearch |orderBy : order:reverse">
+          <td>{{city.name}}</td>
+          <td>{{city.main.temp| convert:tempType}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="selected-city"> <div ui-view></div></div>
+</div>
