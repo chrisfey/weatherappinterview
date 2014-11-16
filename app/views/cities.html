@@ -6,14 +6,13 @@
     </div>
   </header>
   <div class="city-list">
-
     <div class="mobile-city-search">
-    <ui-select ng-model="city.selected" theme="bootstrap" ng-disabled="disabled">
-      <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
-      <ui-select-choices repeat="city in cities.list | filter: $select.search">
-        <span ng-bind-html="city.name | highlight: $select.search"></span>
-      </ui-select-choices>
-    </ui-select>
+      <ui-select ng-model="city.selected" theme="bootstrap" ng-disabled="disabled">
+        <ui-select-match placeholder="Select or search for a city in the list...">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="city in cities.list | filter: $select.search">
+          <div ng-bind-html="city.name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
     </div>
 
     <div class="city-filter">

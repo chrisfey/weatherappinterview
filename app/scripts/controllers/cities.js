@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name inkGlobalApp.controller:CitiesCtrl
@@ -8,7 +7,7 @@
  * Controller of the inkGlobalApp
  */
 angular.module('inkGlobalApp')
-        .controller('CitiesCtrl', function($scope, Weather) {
+        .controller('CitiesCtrl', function($scope, Weather, $state) {
           Weather.getCities().then(function(data) {
             $scope.cities = data;
           });
@@ -21,5 +20,9 @@ angular.module('inkGlobalApp')
             }
           };
           $scope.tempType = 'Celsius';
-         
+          $scope.city = {};
+          $scope.$watch('city', function() {
+            $state.go('cities.current', {cityId: $scope.city.selected.id});
+            console.log($scope.city)
+          }, true);
         });
