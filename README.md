@@ -12,7 +12,7 @@ Run the installation commands then:
 ```
 grunt serve
 ```
-then go to [http:\\localhost:9000\](http:\\localhost:9000\)
+then go to [http://localhost:9000](http://localhost:9000)
 
 
 ## Test
