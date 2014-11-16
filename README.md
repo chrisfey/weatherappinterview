@@ -6,6 +6,9 @@ bower install
 ```
 Then follow instructions below to run locally, test or build.
 
+## Demo
+http://chrisfey.net/inkglobal/
+
 
 ## Run locally
 Run the installation commands then:
